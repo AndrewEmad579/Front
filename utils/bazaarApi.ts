@@ -1,7 +1,7 @@
 import { getAuthHeaders, getAuthHeadersForFormData, handleResponse, handleTextResponse } from "./apiHelpers";
 import { BazaarItem } from "@/types/bazaar";
 
-const API_BASE_URL = "http://localhost:8080"; // Replace with your actual API URL
+const API_BASE_URL = "https://4285-197-49-220-162.ngrok-free.app"; // Replace with your actual API URL
 
 export const bazaarAPI = {
   // ==========================================================

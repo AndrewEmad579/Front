@@ -1,6 +1,6 @@
 // REPLACE WITH THIS
 import { getAuthHeadersForFormData, handleResponse } from "./apiHelpers";
-const API_BASE_URL = "https://03c8-105-207-159-205.ngrok-free.app";
+const API_BASE_URL = "https://4285-197-49-220-162.ngrok-free.app";
 
 export const translationAPI = {
   /**
