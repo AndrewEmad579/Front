@@ -24,8 +24,8 @@ export default function TabBar() {
   }
 
   return (
-    <div className="fixed inset-x-0 bottom-0 md:top-0 md:bottom-auto left-1/2 md:left-0 transform md:transform-none -translate-x-1/2 md:translate-x-0 w-full max-w-md md:max-w-full bg-background/95 backdrop-blur-sm border-t md:border-b md:border-t-0 border-border z-50">
-      <div className="flex items-center justify-around py-2 px-4">
+    <div className="fixed inset-x-0 bottom-0 md:top-0 md:bottom-auto left-1/2 md:left-0 transform md:transform-none -translate-x-1/2 md:translate-x-0 w-full max-w-md md:max-w-full bg-background/95 backdrop-blur-sm border-t md:border-b md:border-t-0 border-border z-50 shadow md:shadow-none">
+      <div className="flex items-center justify-around py-2 px-2 sm:px-4">
         {tabs.map((tab) => {
           const isActive = pathname === tab.href;
           return (
@@ -33,14 +33,14 @@ export default function TabBar() {
               key={tab.href}
               href={tab.href}
               className={cn(
-                "flex flex-col items-center gap-1 p-2 rounded-lg transition-colors min-w-0 flex-1",
+                "flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors min-w-0 flex-1 text-xs sm:text-sm",
                 isActive
                   ? "text-[#FFD700] bg-[#FFD700]/10"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
               )}
             >
-              <tab.icon className="h-5 w-5" />
-              <span className="text-xs font-medium truncate">{tab.label}</span>
+              <tab.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+              <span className="font-medium truncate leading-tight">{tab.label}</span>
             </Link>
           );
         })}

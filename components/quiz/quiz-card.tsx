@@ -37,16 +37,16 @@ export function QuizCard({ quiz }: QuizCardProps) {
   }
 
   return (
-    <Card className="overflow-hidden border-border hover:border-[#FFD700]/50 transition-colors">
-      <div className="relative h-32">
+    <Card className="overflow-hidden border-border hover:border-[#FFD700]/50 transition-colors min-w-0 w-full max-w-full">
+      <div className="relative h-28 sm:h-32">
         <img src={quiz.imageUrl || "/placeholder.svg"} alt={quiz.title} className="object-cover w-full h-full" />
         <Badge className={`absolute top-2 right-2 ${getBadgeColor(quiz.difficulty)}`}>{quiz.difficulty}</Badge>
       </div>
-      <CardContent className="p-3">
-        <div className="flex justify-between items-start">
-          <div>
-            <h3 className="font-medium">{quiz.title}</h3>
-            <p className="text-xs text-muted-foreground mt-1">{quiz.description}</p>
+      <CardContent className="p-2 sm:p-3">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+          <div className="w-full">
+            <h3 className="font-medium text-base sm:text-lg truncate">{quiz.title}</h3>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1 line-clamp-2">{quiz.description}</p>
             <div className="flex items-center text-xs text-muted-foreground mt-1">
               <Star className="h-3 w-3 mr-1" />
               {quiz.questions.length} questions
@@ -63,7 +63,7 @@ export function QuizCard({ quiz }: QuizCardProps) {
           )}
         </div>
         <Button
-          className="w-full mt-3 bg-[#FFD700] hover:bg-[#FFD700]/90 text-black"
+          className="w-full mt-2 sm:mt-3 bg-[#FFD700] hover:bg-[#FFD700]/90 text-black text-sm sm:text-base py-2 sm:py-3"
           onClick={() => router.push(`/learn/quiz/${quiz.id}`)}
         >
           {completed ? "Retry Quiz" : "Start Quiz"}

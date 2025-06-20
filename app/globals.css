@@ -92,39 +92,53 @@
   animation: flash 0.5s ease-out;
 }
 
-/* Mobile optimizations */
+/* Mobile and Tablet optimizations */
 @media (max-width: 480px) {
   h1 {
     font-size: 1.5rem;
   }
-
   h2 {
     font-size: 1.25rem;
   }
-
   .text-sm {
     font-size: 0.8125rem;
   }
-
   .text-xs {
     font-size: 0.75rem;
   }
-
-  /* Improve touch targets on mobile */
   button,
   a[role="button"],
   .interactive {
     min-height: 2.5rem;
   }
-
-  /* Ensure proper spacing on small screens */
   .p-4 {
     padding: 0.75rem;
   }
-
   .space-y-6 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-y-reverse: 0;
     margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+  }
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .p-4 {
+    padding: 1rem;
+  }
+  .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  }
+  .text-sm {
+    font-size: 0.9rem;
+  }
+  .text-xs {
+    font-size: 0.8rem;
   }
 }

@@ -85,7 +85,7 @@ export default function Home() {
   return (
     <>
       <style>{shimmerAnimation}</style>
-      <div className="container mx-auto px-4 py-8 space-y-8 sm:py-12">
+      <div className="container mx-auto px-2 sm:px-4 py-6 sm:py-8 md:py-12 space-y-8">
         <div className="text-center space-y-4">
           <Typography
             variant="h1"
@@ -151,25 +151,25 @@ export default function Home() {
             Explore Features
           </Typography>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
             {features.map((feature) => (
               <Link href={feature.href} key={feature.title}>
                 <Card
                   variant="outlined"
                   interactive
-                  className="h-full"
+                  className="h-full min-h-[180px] sm:min-h-[200px] md:min-h-[220px]"
                 >
-                  <CardContent className="flex flex-col items-center text-center space-y-4 p-6">
+                  <CardContent className="flex flex-col items-center text-center space-y-2 sm:space-y-4 p-4 sm:p-6">
                     <div
-                      className={`w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br ${feature.color} shadow-lg`}
+                      className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-gradient-to-br ${feature.color} shadow-lg`}
                     >
-                      <feature.icon className="h-8 w-8 text-white" />
+                      <feature.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                     </div>
-                    <div className="space-y-2">
-                      <Typography variant="h4" weight="semibold">
+                    <div className="space-y-1 sm:space-y-2">
+                      <Typography variant="h4" weight="semibold" className="text-base sm:text-lg md:text-xl">
                         {feature.title}
                       </Typography>
-                      <Typography variant="muted">
+                      <Typography variant="muted" className="text-xs sm:text-sm">
                         {feature.description}
                       </Typography>
                     </div>

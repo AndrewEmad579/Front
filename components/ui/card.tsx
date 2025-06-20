@@ -13,9 +13,9 @@ const cardVariants = cva(
         ghost: "border-none shadow-none hover:bg-accent/5",
       },
       size: {
-        default: "p-6",
-        sm: "p-4",
-        lg: "p-8",
+        default: "p-4 sm:p-6 md:p-8",
+        sm: "p-2 sm:p-4 md:p-6",
+        lg: "p-6 sm:p-8 md:p-10",
       },
       interactive: {
         true: "cursor-pointer transform hover:-translate-y-1",
