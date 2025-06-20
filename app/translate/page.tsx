@@ -803,12 +803,22 @@ export default function TranslatePage() {
                 {/* Displaying some key fields from the Python API's response */}
                 <div>
                   <Label className="text-xs text-muted-foreground">Detected Text (Summary)</Label>
-                  <p className="p-3 bg-muted rounded-md text-sm">{imageResult.summary_text || "No summary available."}</p>
-                </div>
-                
-                <div>
-                  <Label className="text-xs text-muted-foreground">Bounding Boxes</Label>
-                  <p className="text-sm text-muted-foreground">{imageResult.bounding_boxes?.length || 0} text areas detected.</p>
+                  <div className="flex items-center gap-2">
+                    <p className="p-3 bg-muted rounded-md text-sm flex-1" style={{wordBreak: 'break-word'}}>{imageResult.summary_text || "No summary available."}</p>
+                    {imageResult.summary_text && (
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => {
+                          navigator.clipboard.writeText(imageResult.summary_text);
+                          toast({ title: "Copied", description: "Detected text copied to clipboard." });
+                        }}
+                        aria-label="Copy detected text"
+                      >
+                        <Copy className="h-4 w-4" />
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </CardContent>
             </Card>

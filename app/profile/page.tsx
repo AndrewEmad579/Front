@@ -110,16 +110,6 @@ export default function ProfilePage() {
                 {theme === "dark" ? t("light") : t("dark")}
               </Button>
             </div>
-            <div className="flex items-center justify-between p-2 rounded-lg bg-muted/50">
-              <span className="text-sm font-medium">{t("language")}</span>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setLanguage(language === "en" ? "ar" : "en")}
-              >
-                {language === "en" ? t("arabic") : t("english")}
-              </Button>
-            </div>
           </div>
         </CardContent>
       </Card>
