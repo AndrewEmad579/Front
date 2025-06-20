@@ -438,46 +438,28 @@ export default function TranslatePage() {
   }, []);
 
   const handlePronounce = () => {
-    if (!translatedText || toLanguage === "hieroglyph") return;
+    if (!translatedText) return;
 
-    // Cancel any ongoing speech
-    speechSynthesis.cancel();
+    // Only allow pronunciation for English translations
+    if (toLanguage !== 'english') {
+      toast({
+        description: "Text-to-speech is only available for English translations.",
+      });
+      return;
+    }
 
     const utterance = new SpeechSynthesisUtterance(translatedText);
     
-    // Set language code
-    utterance.lang = toLanguage === "arabic" ? "ar-SA" : "en-US";
-    
-    // Find the best voice for the selected language
-    const voice = voices.find(
-      (v) => v.lang.startsWith(toLanguage === "arabic" ? "ar" : "en") && !v.localService
-    ) || voices.find(
-      (v) => v.lang.startsWith(toLanguage === "arabic" ? "ar" : "en")
+    // Find an English voice
+    const englishVoice = voices.find(
+      (voice) => voice.lang.startsWith('en-')
     );
     
-    if (voice) {
-      utterance.voice = voice;
-    } else {
-      console.warn(`No suitable voice found for ${toLanguage === "arabic" ? "Arabic" : "English"}`);
+    if (englishVoice) {
+      utterance.voice = englishVoice;
     }
-
-    // Optimize speech parameters
-    utterance.rate = 0.9; // Slightly slower than default (1.0)
-    utterance.pitch = 1.0; // Natural pitch
-    utterance.volume = 1.0; // Full volume
-
-    // Error handling
-    utterance.onerror = (event) => {
-      console.error("Speech synthesis error:", event);
-      toast({
-        title: "Speech Error",
-        description: "Failed to play speech. Please try again.",
-        variant: "destructive",
-      });
-    };
-
-    // Speak the text
-    speechSynthesis.speak(utterance);
+    
+    window.speechSynthesis.speak(utterance);
   };
 
   const formatTime = (seconds: number) => {
@@ -631,14 +613,15 @@ export default function TranslatePage() {
                     <Button variant="ghost" size="icon" onClick={handleCopy}>
                       <Copy className="h-4 w-4" />
                     </Button>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={handlePronounce}
-                      disabled={toLanguage === "hieroglyph"}
-                    >
-                      <Volume2 className="h-4 w-4" />
-                    </Button>
+                    {toLanguage === 'english' && (
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={handlePronounce}
+                      >
+                        <Volume2 className="h-4 w-4" />
+                      </Button>
+                    )}
                   </div>
                 </div>
                 <div className="max-h-[200px] overflow-y-auto">

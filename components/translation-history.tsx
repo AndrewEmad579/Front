@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Clock, Trash2 } from "lucide-react"
+import { Clock, Trash2, Volume2 } from "lucide-react"
 
 // Mock data for translation history
 const historyItems = [
@@ -42,7 +42,12 @@ export default function TranslationHistory() {
                 <p className="text-sm font-medium mt-1">{item.original}</p>
                 <p className="text-xs mt-1">{item.translated}</p>
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center gap-1">
+                {item.to === 'english' && (
+                  <Button variant="ghost" size="icon" className="h-6 w-6">
+                    <Volume2 className="h-3 w-3" />
+                  </Button>
+                )}
                 <Button variant="ghost" size="icon" className="h-6 w-6">
                   <Trash2 className="h-3 w-3" />
                 </Button>
