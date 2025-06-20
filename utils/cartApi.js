@@ -1,6 +1,6 @@
 import { getAuthHeaders, handleResponse, handleTextResponse } from "./apiHelpers"; // Assuming you create a shared apiHelpers.js file
 
-const API_BASE_URL = "https://4285-197-49-220-162.ngrok-free.app"; // Replace with your actual API URL
+const API_BASE_URL = "https://c074-197-49-220-162.ngrok-free.app"; // Replace with your actual API URL
 
 // Helper function to get headers with ngrok bypass
 const getNgrokHeaders = () => ({

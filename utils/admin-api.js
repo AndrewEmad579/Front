@@ -1,7 +1,7 @@
 import { handleResponse } from "./apiHelpers";
 
 // BEST PRACTICE: Define the base URL without "/api". We add the full path in each call.
-const API_BASE_URL = "https://4285-197-49-220-162.ngrok-free.app";
+const API_BASE_URL = "https://c074-197-49-220-162.ngrok-free.app";
 
 // --- ADMIN-SPECIFIC API CALLS ---
 

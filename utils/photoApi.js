@@ -1,6 +1,6 @@
 import { handleResponse, getAuthHeadersForFormData } from "./apiHelpers"; // Import the helper
 
-const API_BASE_URL = "https://4285-197-49-220-162.ngrok-free.app"; // Replace with your actual API URL
+const API_BASE_URL = "https://c074-197-49-220-162.ngrok-free.app"; // Replace with your actual API URL
 
 export const photoAPI = {
   /**
